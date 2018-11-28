@@ -1,0 +1,15 @@
+{
+  "name": "jezequel-n-gatsby",
+  "description": "My personal website from scratch to GatsbyJS",
+  "scripts": {
+    "develop": "gatsby develop",
+    "start": "npm run develop",
+    "build": "gatsby build",
+    "serve": "gatsby serve"
+  },
+  "dependencies": {
+    "gatsby": "^2.0.33",
+    "react": "^16.5.1",
+    "react-dom": "^16.5.1"
+  }
+}
