@@ -1,0 +1,35 @@
+/* GLOBAL STYLE */
+
+@value colors: "../util/colors.css";
+@value colorTextBase from colors;
+/* postcss  config ok ? => https://github.com/css-modules/css-modules/blob/master/docs/values-variables.md */
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Quicksand', sans-serif;
+  margin: 0;
+  color: colorTextBase;
+}
+
+p {
+  /* margin: 0; */
+}
+
+a {
+  text-decoration: none;
+  color: colorTextBase;
+}
+
+strong, b {
+  /* font-size: 0.95em;
+  font-weight: 500;
+  color: colorTextBase; */
+}

@@ -1,0 +1,20 @@
+@value responsive: "../util/responsive.css";
+@value bpMedium, bpLarge from responsive;
+
+@media (min-width: bpMedium) {
+  .layout {
+    display: flex;
+    /* height: 100vh; */
+  }
+  
+  .container {
+    flex: 1;
+  }
+}
+
+@media (min-width: bpLarge) {
+  .container {
+    flex: 3;
+  }
+}
+

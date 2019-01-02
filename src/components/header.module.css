@@ -1,0 +1,99 @@
+@value colors: "../util/colors.css";
+@value colorPrimary, colorSecondary from colors;
+
+@value box: "../util/box.css";
+@value globalPadding from box;
+
+@value responsive: "../util/responsive.css";
+@value bpMedium, bpLarge, headerWidthMedium, headerWidthLarge from responsive;
+
+.wrapper {
+  font-size: 1.5rem;
+}
+
+.header {
+  position: relative
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  padding: globalPadding; 
+}
+
+.header:before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('./wong-blur-660.jpg');
+  background-size: cover;
+  z-index: -1;
+}
+
+.textBackground {
+  background: rgba(0,0,0,.5);
+  padding: .1rem .3rem;
+  border-radius: 2px;
+}
+
+.fullname {
+  font-size: 1em;
+  font-family: 'Lato', sans-serif;
+  margin: 0.75rem 0 0;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+
+  composes: textBackground;
+}
+
+.fullname a {
+  color: colorPrimary;
+}
+
+.job {
+  font-size: 0.8em;
+  line-height: normal;
+  letter-spacing: 1px;
+  margin: 0.2em 0 0;
+  font-weight: 500;
+  color: colorSecondary;
+
+  composes: textBackground;
+}
+
+.placeholderAvatar {
+  width: 100px;
+  height: 100px;
+  background-color: #f5f3e0;
+  opacity: 0.5;
+  border-radius: 2px;
+}
+
+@media (min-width: bpMedium) {
+  .wrapper {
+    flex-basis: headerWidthMedium;
+  }
+
+  .header {
+    position: fixed;
+    height: 100%;
+    width: headerWidthMedium;
+  }
+
+  .container {
+    align-items: flex-end;
+  }
+}
+
+@media (min-width: bpLarge) {
+  .wrapper {
+    flex: 1;
+  }
+
+  .header {
+    width: headerWidthLarge;
+  }
+}
