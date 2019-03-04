@@ -10,7 +10,7 @@ public_folder: "/images/uploads" # The src attribute for uploaded media will beg
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
-    folder: "_posts/blog"
+    folder: "src/pages/blog"
     create: true
     slug: "{{day}}-{{month}}-{{year}}-{{slug}}"
     fields:
