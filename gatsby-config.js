@@ -4,6 +4,14 @@ module.exports = {
   },
   plugins: [
     'gatsby-plugin-netlify-cms',
-    'gatsby-plugin-netlify-identity-widget'
+    'gatsby-plugin-netlify-identity-widget',
+    {
+      resolve: 'gatsby-source-filesystem',
+      options: {
+        name: 'pages',
+        path: `${__dirname}/src/pages`
+      },
+    },
+    'gatsby-transformer-remark'
   ]
 };
