@@ -32,6 +32,11 @@ exports.createPages = ({ graphql, actions }) => {
     }
   `)
   .then(result => {
+    if (result.errors) {
+      result.errors.forEach(err => console.error(err.toString()));
+      return Promise.reject(result.errors);
+    }
+
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       console.log('\n', '[createPages]', 'node.fields.slug :', node.fields.slug);
 
