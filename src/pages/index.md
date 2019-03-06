@@ -1,5 +1,6 @@
 ---
 templateKey: index-page
+foo: foo !
 intro: |-
   intro !
 
