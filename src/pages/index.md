@@ -1,5 +1,10 @@
 ---
 templateKey: index-page
-intro: intro !
+intro: |-
+  intro !
+
+
+
+  test saut de ligne...
 ---
 ah !
