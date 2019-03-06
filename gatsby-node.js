@@ -20,11 +20,17 @@ exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
   return graphql(`
     {
-      allMarkdownRemark {
+      allMarkdownRemark(
+        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
+      ) {
         edges {
           node {
+            id
             fields {
               slug
+            }
+            frontmatter {
+              templateKey
             }
           }
         }
@@ -40,14 +46,16 @@ exports.createPages = ({ graphql, actions }) => {
     result.data.allMarkdownRemark.edges.forEach(({ node }) => {
       console.log('\n', '[createPages]', 'node.fields.slug :', node.fields.slug);
 
+      const id = node.id
       createPage({
         path: node.fields.slug,
-        component: path.resolve('./src/templates/blog-post.js'),
+        component: path.resolve(
+          `./src/templates/${String(node.frontmatter.templateKey)}.js`
+        ),
         context: {
-          // Data passed to context is available
-          // in page queries as GraphQL variables.
-          slug: node.fields.slug,
-        },
+          // Data passed to context is available in page queries as GraphQL variables.
+          id
+        }
       })
     });
   })

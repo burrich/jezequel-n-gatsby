@@ -7,6 +7,9 @@ publish_mode: editorial_workflow
 media_folder: "static/images/uploads" # Media files will be stored in the repo under images/uploads
 public_folder: "/images/uploads" # The src attribute for uploaded media will begin with /images/uploads
 
+# 2 types of collections :
+# - folder for repetitive content sharing the same structure (blog posts...)
+# - files for unique content with different structure (pages, header...)
 collections:
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Blog" # Used in the UI
@@ -14,6 +17,17 @@ collections:
     create: true
     slug: "{{day}}-{{month}}-{{year}}-{{slug}}"
     fields:
+      - {label: "Template Key", name: "templateKey", widget: "hidden", default: "blog-post"}
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Body", name: "body", widget: "markdown"}
+  - name: "pages"
+    label: "Pages"
+    files:
+      - name: "index"
+        label: "Index Page"
+        file: "src/pages/index.md"
+        fields:
+          - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
+          - {label: "Intro", name: "intro", widget: markdown}
+          - {label: "Body", name: "body", widget: "markdown"}
