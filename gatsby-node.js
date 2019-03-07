@@ -4,6 +4,7 @@ const { createFilePath } = require('gatsby-source-filesystem');
 exports.onCreateNode = ({ node, getNode, actions }) => {
   const { createNodeField } = actions;
 
+  // TODO: Filter templates ?
   if (node.internal.type === 'MarkdownRemark') {
     const slug = createFilePath({ node, getNode });
     console.log('\n', '[onCreateNode]', 'slug :', slug);
@@ -18,11 +19,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
 
 exports.createPages = ({ graphql, actions }) => {
   const { createPage } = actions;
+  
+  // filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
   return graphql(`
     {
-      allMarkdownRemark(
-        filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
-      ) {
+      allMarkdownRemark {
         edges {
           node {
             id

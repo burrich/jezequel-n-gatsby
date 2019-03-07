@@ -1,5 +1,5 @@
 import React from 'react';
-import { graphql } from 'gatsby';
+import { Link, graphql } from 'gatsby';
 import Layout from '../components/layout';
 
 export default ({ data }) => {
@@ -32,6 +32,7 @@ export const query = graphql`
       html
     }
     blogPosts: allMarkdownRemark(
+      filter: { frontmatter: { templateKey: { eq: "blog-post" } } }
       sort: { fields: [frontmatter___date], order: DESC }
     ) {
       totalCount

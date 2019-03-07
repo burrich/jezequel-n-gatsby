@@ -29,6 +29,4 @@ collections:
         file: "src/pages/index.md"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: "Foo", name: "foo", widget: "string"}
-          - {label: "Intro", name: "intro", widget: markdown}
           - {label: "Body", name: "body", widget: "markdown"}
